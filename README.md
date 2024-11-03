@@ -49,7 +49,6 @@ Her araçta yanıt üretimi için **Google Gemini** kullanılıyor; RAG mimarisi
 3. **Django Sunucusunu Çalıştırın**
 
    ```bash
-   cd education
    python manage.py runserver
 
 4. **Uygulamayı Açın**
