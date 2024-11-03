@@ -46,12 +46,16 @@ Her araçta yanıt üretimi için **Google Gemini** kullanılıyor; RAG mimarisi
     ```bash
     pip install -r requirements.txt
 
-3. **Django Sunucusunu Çalıştırın**
+3. **Gemini API Keylerinizi Girin**
+
+   Gemini API keylerinizi .env dosyasına girin.
+
+4. **Django Sunucusunu Çalıştırın**
 
    ```bash
    python manage.py runserver
 
-4. **Uygulamayı Açın**
+5. **Uygulamayı Açın**
 
    Tarayıcınızda http://localhost:8000 adresini açın.
 
