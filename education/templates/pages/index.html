@@ -1,0 +1,63 @@
+{% extends 'layout.html' %}
+
+{% load static %}
+
+{% block title %}
+    Home
+{% endblock %}
+
+{% block content %}
+    <div class="row">
+        <div class="col-md-1"></div>
+        <div class="col-md-5">
+            <a href="{% url 'pdf-creator'%}" class="card">
+                <img src="{% static 'img/pdf_1.jpg'%}" class="card__img">
+                <span class="card__footer mb-1">
+                  <span>Soru Üretici</span>
+                  <span>Öğrenciyseniz çalışmak ya da öğrenmek istediği konuyla alakalı bir PDF dosyası verip, soru üretmek istediğiniz konuları girerek soru üretebileceğiniz bir yapay zeka aracı. Eğer öğretmenseniz, öğrencileriniz için soru hazırlayabilirsiniz.</span>
+                </span>
+                <span class="card__action">
+                </span>
+            </a>
+        </div>
+        <div class="col-md-5">
+            <a href="{% url 'teacher'%}" class="card">
+                <img src="{% static 'img/teacher_1.jpg'%}" class="card__img">
+                <span class="card__footer mb-1">
+                  <span>Öğretmen</span>
+                  <span>Öğrenmek istediğiniz bir konuyu birinin size anlatması mı gerekiyor? O zaman hiç durmayın ve öğrenmek istediğiniz konuyla alakalı bir PDF dosyası vererek yapay zekaya sorular sorun ve öğrenmeye başlayın!</span>
+                </span>
+                <span class="card__action">
+                </span>
+            </a>
+        </div>
+        <div class="col-md-1"></div>
+    </div>
+    <div class="row mt-5">
+        <div class="col-md-1"></div>
+        <div class="col-md-5">
+            <a href="{% url 'video_summarizer'%}" class="card">
+                <img src="{% static 'img/video_summarizer_1.jpg'%}" class="card__img">
+                <span class="card__footer mb-1">
+                  <span>Video Özetleyici</span>
+                  <span>Bir Youtube ders videosu izlemek ya da içeriğini hatırlamak mı istiyorsunuz? O zaman video adresini girin ve arkanıza yaslanıp özetin gelmesini bekleyin.</span>
+                </span>
+                <span class="card__action">
+                </span>
+            </a>
+        </div>
+        <div class="col-md-5">
+            <a href="{% url 'visual_ai'%}" class="card">
+                <img src="{% static 'img/visual_ai.jpg'%}" class="card__img">
+                <span class="card__footer mb-1">
+                  <span>Yapay Görü</span>
+                  <span>Bir fotoğrafın metnini çıkarmak, çözdüğünüz sorunun doğrulununu kontrol etmek ya da o soruyu yapay zekaya çözdürmek mi istiyorsunuz? Hemen bir fotoğraf yükleyin ve yapay zekanın yeteneklerini izleyin.</span>
+                </span>
+                <span class="card__action">
+                </span>
+            </a>
+        </div>
+        <div class="col-md-1"></div>
+    </div>
+{% endblock %}
+

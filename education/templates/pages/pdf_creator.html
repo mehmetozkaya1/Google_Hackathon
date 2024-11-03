@@ -1,0 +1,64 @@
+{% extends 'layout.html' %}
+
+{% load static %}
+
+{% block title %}
+    Soru Oluşturucu
+{% endblock %}
+
+{% block content %}
+<div class="container mt-5 text-center">
+    <div class="row">
+        <div class="col-md-2"></div>
+        <div class="col-md-8">
+            <div class="card-new">
+                <h4 class="card-title text-center mb-4 mt-3">Soru Oluşturmaya Başla!</h4>
+                <p class="card-text m-2">
+                    Öğrenciyseniz çalışmak ya da öğrenmek istediği konuyla alakalı bir PDF dosyası verip, soru üretmek istediğiniz konuları girerek soru üretebileceğiniz bir yapay zeka aracı. Eğer öğretmenseniz, öğrencileriniz için soru hazırlayabilirsiniz.
+                </p>
+                {% if success %}
+                    <div class="alert alert-success mt-3">PDF dosyanız başarıyla yüklendi!</div>
+                    <div class="text-center">
+                        <form method="post" action="{% url 'create_questions' %}" class="text-center mt-1" onsubmit="showSpinner()">
+                            {% csrf_token %}
+                            <p>Hangi Konulardan Soru Üretmek İstiyorsunuz? Lütfen konuları virgüllerle ayırarak giriniz.</p>
+                            <div class="input-group">
+                                <span class="input-group-text ml-2">Konular</span>
+                                <textarea class="form-control mr-2" name="topics" aria-label="With textarea" required></textarea>
+                            </div>
+                            <button type="submit" class="btn btn-color mt-3 mb-3">Soru Üret</button>
+                        </form>
+                        <div id="spinner" class="spinner-border text-primary mt-3" role="status" style="display: none; margin: auto;">
+                            <span class="visually-hidden">Yükleniyor...</span>
+                        </div>
+                    </div>
+                {% else %}
+                    <form method="post" enctype="multipart/form-data" action="{% url 'upload_pdf' %}">
+                        {% csrf_token %}
+                        <div class="form-group text-center">
+                            <label for="pdfUpload" class="btn btn-color">
+                                <i class="fas fa-file-upload fa-2x p-2"></i>
+                                <span class="ml-2">PDF Seçin</span>
+                            </label>
+                            <input type="file" id="pdfUpload" name="pdf_file" accept=".pdf" class="form-control-file" style="display: none;" required>
+                        </div>
+                        <div class="text-center">
+                            <button type="submit" class="btn btn-color mt-3 mb-3">
+                                <i class="fa-regular fa-circle-down"></i>
+                                <span class="ml-2">Yükle</span>
+                            </button>
+                        </div>
+                    </form>
+                {% endif %}
+            </div>
+        </div>
+        <div class="col-md-2"></div>
+    </div>
+</div>
+
+<script>
+function showSpinner() {
+    document.getElementById('spinner').style.display = 'block';
+}
+</script>
+{% endblock %}

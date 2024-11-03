@@ -1,0 +1,80 @@
+<header>
+    <div class="navbar navbar-expand-sm navbar-color">
+        <div class="container">
+            <a href="{% url 'index' %}" class="navbar-brand">
+                <i class="fa-solid fa-user-graduate fa-2x"></i>  AI SCHOOL 
+            </a>
+            <ul class="navbar-nav ml-auto">
+                <li class="nav-item">
+                    <a href="{% url 'index' %}" {% if request.path == '/' %}
+                                                    class="nav-link active"
+                                                {% else %}
+                                                    class="nav-link"
+                                                {% endif %}>
+                        ANASAYFA 
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <i class="fa-solid fa-circle custom-size text-white"></i>
+                </li>
+                <li class="nav-item">
+                    <a href="{% url 'about' %}" {% if 'about' in request.path %}
+                                                    class="nav-link active"
+                                                {% else %}
+                                                    class="nav-link"
+                                                {% endif %}>
+                        HAKKIMIZDA
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <i class="fa-solid fa-circle custom-size text-white"></i>
+                </li>
+                <li class="nav-item">
+                    <a href="{% url 'teacher' %}" {% if 'teacher' in request.path %}
+                                                    class="nav-link active"
+                                                {% else %}
+                                                    class="nav-link"
+                                                {% endif %}>
+                        YAPAY ÖGRETMEN
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <i class="fa-solid fa-circle custom-size text-white"></i>
+                </li>
+                <li class="nav-item">
+                    <a href="{% url 'pdf-creator' %}" {% if request.path == '/pdf-creator' %}
+                                                    class="nav-link active"
+                                                {% else %}
+                                                    class="nav-link"
+                                                {% endif %}>
+                        SORU OLUŞTURUCU
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <i class="fa-solid fa-circle custom-size text-white"></i>
+                </li>
+                <li class="nav-item">
+                    <a href="{% url 'video_summarizer' %}" {% if request.path == '/video-summarizer' %}
+                                                    class="nav-link active"
+                                                {% else %}
+                                                    class="nav-link"
+                                                {% endif %}>
+                        VİDEO ÖZETLEYİCİ 
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <i class="fa-solid fa-circle custom-size text-white"></i>
+                </li>
+                <li class="nav-item">
+                    <a href="{% url 'visual_ai' %}" {% if request.path == '/visual_ai' %}
+                                                    class="nav-link active"
+                                                {% else %}
+                                                    class="nav-link"
+                                                {% endif %}>
+                        YAPAY GÖRÜ 
+                    </a>
+                </li>
+            </ul>
+        </div>
+    </div>
+</header>

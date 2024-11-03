@@ -1,0 +1,93 @@
+{% extends 'layout.html' %}
+
+{% load static %}
+
+{% block title %}
+    Yapay Öğretmen
+{% endblock %}
+
+{% block content %}
+
+<div class="container">
+    <div class="row mt-5 justify-content-center">
+        <div class="col-md-8">
+            <div class="card-new">
+                <div class="text-center mb-3">
+                    <h3 class="mt-3 mb-1 text-white">Sohbet</h5>
+                </div>
+                <div id="chatBox" class="chat-box" style="height: 400px; margin: 20px; margin-top: 5px;">
+                    <!-- Mesajlar burada görüntülenecek -->
+                </div>
+                <div class="input-container" style="margin: 20px; margin-top: 5px;">
+                    <input id="userInput" type="text" placeholder="Mesajınızı yazın..." onkeypress="checkEnter(event)">
+                    <button class="bt-color" onclick="sendMessage()">Gönder</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+{% endblock %}
+
+{% block script %}
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+<script>
+    function sendMessage() {
+        const message = $('#userInput').val();
+        if (message) {
+            addMessage('user', message);  
+            $('#userInput').val('');     
+            
+            $.ajax({
+                url: '{% url "teacher_chatbot" %}',
+                method: 'POST',
+                data: {
+                    'message': message,
+                    'csrfmiddlewaretoken': '{{ csrf_token }}'
+                },
+                success: function(data) {
+                    typeWriterEffect('bot', data.response);
+                },
+                error: function() {
+                    addMessage('bot', "Bir hata oluştu, lütfen tekrar deneyin.");
+                }
+            });
+        }
+    }
+
+    function checkEnter(event) {
+        if (event.key === 'Enter') {
+            sendMessage();
+        }
+    }
+
+    function addMessage(sender, message) {
+        const chatBox = document.getElementById('chatBox');
+        const messageDiv = document.createElement('div');
+        messageDiv.classList.add('message', sender === 'user' ? 'user-message' : 'bot-message');
+        messageDiv.innerText = message;
+        chatBox.appendChild(messageDiv);
+        chatBox.scrollTop = chatBox.scrollHeight;
+    }
+
+    function typeWriterEffect(sender, text) {
+        const chatBox = document.getElementById('chatBox');
+        const messageDiv = document.createElement('div');
+        messageDiv.classList.add('message', sender === 'bot' ? 'bot-message' : 'user-message');
+        chatBox.appendChild(messageDiv);
+        
+        let index = 0;
+        function typeWriter() {
+            if (index < text.length) {
+                messageDiv.innerHTML += text.charAt(index);
+                index++;
+                setTimeout(typeWriter, 10);
+            } else {
+                chatBox.scrollTop = chatBox.scrollHeight;
+            }
+        }
+        typeWriter();
+    }
+</script>
+
+{% endblock %}

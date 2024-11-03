@@ -1,0 +1,85 @@
+{% extends 'layout.html' %}
+
+{% load static %}
+
+{% block title %}
+    Hakkımızda
+{% endblock %}
+
+{% block content %}
+<div class="container mt-5 text-center">
+    <div class="row">
+        <div class="col-md-2"></div>
+        <div class="col-md-8">
+            <div class="card-new">
+                <h4 class="card-title text-center mb-4 mt-3">Hackathon Projesi Code'nVolt Takımı Üyeleri</h4>
+                <div class="row m-2">
+                    <div class="col-md-6">
+                        <div class="card-new mb-2">
+                            <h5 class="card-title text-center m-2">Mehmet Özkaya</h5>
+                            <div class="row">
+                                <div class="col-md-12">
+                                    <h6>Ankara Üniversitesi Bilgisayar Mühendisliği</h6>
+                                    <h6>2. Sınıf</h6>
+                                </div>
+                                <div class="col-md-12">
+                                    <img src="{% static 'img/mehmet.jpeg' %}" class="m-2" alt="" style="object-fit: cover; width: 80%; height: auto;">
+                                </div>
+                            </div>
+                            <div class="row m-2">
+                                <div class="col-md-4">
+                                    <a href="https://github.com/mehmetozkaya1" class="btn btn-color" style="background-color: #a67314;">
+                                        <i class="fa-brands fa-github fa-2x"></i>  Github
+                                    </a>
+                                </div>
+                                <div class="col-md-4">
+                                    <a href="https://www.linkedin.com/in/mehmetozkaya-/" class="btn btn-color">
+                                        <i class="fa-brands fa-linkedin fa-2x"></i>  Linkedin
+                                    </a>
+                                </div>
+                                <div class="col-md-4">
+                                    <a href="https://medium.com/@kayamemo168" class="btn btn-color" style="background-color: black;">
+                                        <i class="fa-brands fa-medium fa-2x"></i>  Medium
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                        <div class="card-new mb-2">
+                            <h5 class="card-title text-center m-2">Aybala Kılıç</h5>
+                            <div class="row">
+                                <div class="col-md-12">
+                                    <h6>Gazi Üniversitesi Elektrik-Elektronik Mühendisliği</h6>
+                                    <h6>2. Sınıf</h6>
+                                </div>
+                                <div class="col-md-12">
+                                    <img src="{% static 'img/aybala.jpeg' %}" class="m-2" alt="" style="object-fit: cover; width: 66%; height: auto;">
+                                </div>
+                            </div>
+                            <div class="row m-2">
+                                <div class="col-md-4">
+                                    <a href="https://github.com/aybalakilic" class="btn btn-color" style="background-color: #a67314;">
+                                        <i class="fa-brands fa-github fa-2x"></i>  Github
+                                    </a>
+                                </div>
+                                <div class="col-md-4">
+                                    <a href="https://www.linkedin.com/in/aybalakilic/" class="btn btn-color">
+                                        <i class="fa-brands fa-linkedin fa-2x"></i>  Linkedin
+                                    </a>
+                                </div>
+                                <div class="col-md-4">
+                                    <a href="https://www.tinkercad.com/users/gA2O7Zzo7MM?type=circuits" class="btn btn-color" style="background-color: black;">
+                                        <i class="fa-solid fa-plug fa-2x"></i>  Tinkercad
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-2"></div>
+    </div>
+</div>
+{% endblock %}

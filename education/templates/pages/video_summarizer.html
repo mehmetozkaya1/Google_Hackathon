@@ -1,0 +1,63 @@
+{% extends 'layout.html' %}
+
+{% load static %}
+
+{% block title %}
+    Video Özetleyici
+{% endblock %}
+
+{% block content %}
+<div class="container mt-5 text-center">
+    <form method="post" id="summarizeForm" class="text-center mt-3">
+        {% csrf_token %}
+        <p class="text-white" style="font-size: 25px;">Lütfen özetini çıkarmak istediğiniz Youtube videosunun linkini tam olarak giriniz. Videonun bir playlist içinde olmamasına özen gösteriniz.</p>
+        <div class="input-group">
+            <span class="input-group-text">Youtube URL</span>
+            <textarea class="form-control" name="youtube_url" aria-label="With textarea" required></textarea>
+        </div>
+        <button type="submit" class="btn btn-color mt-3">Özetini Çıkar</button>
+    </form>
+
+    <!-- Spinner ve sonuç alanı -->
+    <div id="loadingSpinner" class="mt-4" style="display: none;">
+        <div class="spinner-border text-light" role="status">
+            <span class="visually-hidden">Yükleniyor...</span>
+        </div>
+    </div>
+    <div id="speechResult" class="mt-4"></div>
+</div>
+{% endblock %}
+
+{% block script %}
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+<script>
+    $(document).ready(function() {
+        $('#summarizeForm').submit(function(e) {
+            e.preventDefault();
+
+            $('#loadingSpinner').show();
+            $('#speechResult').hide(); 
+
+            const formData = $(this).serialize();
+
+            $.ajax({
+                url: "{% url 'summarize_video' %}",
+                method: "POST",
+                data: formData, 
+                success: function(response) {
+                    let formattedSpeech = response.speech.replace(/\*\*(.*?)\*\*/g, '<strong>$1</strong>').replace(/\n/g, '<br>');
+                    $('#speechResult').html('<div style="border: 2px solid white; padding: 10px; margin: 10px; border-radius: 5px;"><h5 style>Video Konuşma Metni:</h5><p>' + formattedSpeech + '</p></div>');
+                    $('#speechResult').show();
+                },
+                error: function() {
+                    $('#speechResult').html('<p>Bir hata oluştu. Lütfen tekrar deneyin.</p>');
+                    $('#speechResult').show();
+                },
+                complete: function() {
+                    $('#loadingSpinner').hide();
+                }
+            });
+        });
+    });
+</script>
+{% endblock %}

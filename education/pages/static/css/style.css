@@ -1,0 +1,243 @@
+.navbar-color {
+    background-color: #7EABE2ff;
+}
+
+.navbar {
+    background-color: rgba(255, 255, 255, 0.5); /* Yarı saydam beyaz arka plan */
+    backdrop-filter: blur(50px); /* Bulanıklık efekti */
+}
+
+header li {
+    display: flex;
+    align-items: center;
+    margin-right: 10px;
+}
+
+.navbar-color a{
+    color: white;
+    padding-top: 15px;
+    padding-bottom: 15px;
+    font-size: 20px;
+    font-family: "Fira Sans", sans-serif;
+    font-weight: 400;
+    font-style: normal;
+}
+
+.navbar-color a:hover{
+    color: #68ABEFff;
+    font-size: 20px;
+    font-family: "Fira Sans", sans-serif;
+    font-weight: 400;
+    font-style: normal;
+}
+
+.navbar-color .nav-link.active{
+    color: #2066a8;
+    font-size: 20px;
+    font-family: "Fira Sans", sans-serif;
+    font-weight: 400;
+    font-style: normal;
+}
+
+body {
+    background-color: #E4E0E1;
+    background-image: url('../img/wallpaper3.jpg');
+    background-repeat: no-repeat; 
+    background-position: center;
+    background-size: cover; /* Resmin sayfayı tamamen kaplamasını sağlar */
+    background-attachment: fixed; /* Sayfa kaydırıldığında arka planın sabit kalmasını sağlar */
+    min-height: 100vh; /* Sayfanın en az yüksekliğini görünüm yüksekliği kadar ayarlayın */
+}
+
+.custom-img {
+    height: 350px;
+    object-fit: cover; 
+    width: 100%; 
+}
+
+.btn-color {
+    background-color: #2066a8;
+    color: white;
+}
+
+.btn-color:hover {
+    background-color: #68ABEFff;
+    color: rgb(255, 255, 255);
+}
+
+.card-color {
+    background-color: #D6C0B3;
+}
+.chat-box {
+    min-height: 250px;
+    max-height: 800px;
+    overflow-y: auto;
+    padding: 10px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    background-color: #f8f9fa;
+    margin-bottom: 10px; /* Input alanı ile chat kutusu arasında boşluk bırakmak için */
+}
+
+.input-container {
+    display: flex;
+    justify-content: center; /* Input ve butonu ortalar */
+    margin-top: 10px;
+}
+
+.input-container input {
+    flex: 1;
+    padding: 8px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    margin-right: 5px; /* Buton ile input arasında boşluk bırakmak için */
+}
+
+.input-container button {
+    padding: 8px 15px;
+    border: none;
+    background-color: #2066a8;
+    color: white;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.input-container button:hover {
+    margin-left: 5px;
+    padding: 8px 15px;
+    border: none;
+    background-color: #68ABEFff;
+    color: white;
+    border-radius: 5px;
+    cursor: pointer;
+}
+.message {
+    padding: 8px 12px;
+    border-radius: 15px;
+    margin: 5px 0;
+    max-width: 70%;
+    position: relative;
+    font-size: 14px;
+}
+.user-message {
+    background-color: #93caf5;
+    align-self: flex-end;
+    margin-left: auto;
+}
+.bot-message {
+    background-color: #f2c9e7;
+    align-self: flex-start;
+    margin-right: auto;
+}
+
+.custom-size {
+    font-size: 5px;
+}
+
+* {
+    box-sizing: border-box;
+}
+  
+.card {
+    --blur: 16px;
+    /* --size: clamp(300px, 50vmin, 600px); */
+    width: var(--size);
+    aspect-ratio: 4 / 3;
+    position: relative;
+    border-radius: 2rem;
+    overflow: hidden;
+    color: #000;
+    transform: translateZ(0);
+}
+  
+.card__img {
+    width: 100%;
+    height: 100%;
+    object-fit:scale-down;
+    transform: scale(calc(1 + (var(--hover, 0) * 0.25))) rotate(calc(var(--hover, 0) * -5deg));
+    transition: transform 0.2s;
+}
+  
+.card__footer {
+    padding: 0 1.5rem;
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    background: red;
+    display: grid;
+    grid-template-rows: auto auto;
+    gap: 0.5ch;
+    background: hsl(0 0% 100% / 0.5);
+    backdrop-filter: blur(var(--blur));
+    height: 30%;
+    align-content: center;
+}
+  
+.card__action {
+    position: absolute;
+    aspect-ratio: 1;
+    width: calc(var(--size) * 0.15);
+    bottom: 30%;
+    right: 1.5rem;
+    transform: translateY(50%)
+      translateY(
+        calc(
+          (var(--size) * 0.4)
+        )
+      )
+      translateY(calc(var(--hover, 0) * (var(--size) * -0.4)));
+    background: purple;
+    display: grid;
+    place-items: center;
+    border-radius: 0.5rem;
+    background: hsl(0 0% 100% / 0.5);
+  /*   backdrop-filter: blur(calc(var(--blur) * 0.5)); */
+    transition: transform 0.2s;
+}
+  
+.card__action svg {
+    aspect-ratio: 1;
+    width: 50%;
+}
+  
+.card__footer span:nth-of-type(1) {
+    font-size: calc(var(--size) * 0.065);
+}
+  
+.card__footer span:nth-of-type(2) {
+    font-size: calc(var(--size) * 0.035);
+}
+  
+.card:is(:hover, :focus-visible) {
+    --hover: 1;
+}
+
+
+
+
+  
+.card-new {
+    /* max-width: 300px;
+    min-height: 200px; */
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+  
+    /* max-width: 1200px;
+    height: 500px;
+    padding: 35px; */
+  
+    border: 1px solid rgba(255, 255, 255, .25);
+    border-radius: 20px;
+    background-color: rgba(255, 255, 255, 0.45);
+    box-shadow: 0 0 10px 1px rgba(0, 0, 0, 0.25);
+  
+    backdrop-filter: blur(15px);
+}
+  
+.card-footer-new {
+    font-size: 0.65em;
+    color: #446;
+}
+  
